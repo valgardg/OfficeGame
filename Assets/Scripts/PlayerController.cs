@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movement;
     private Rigidbody2D rb;
+    public Animator animator;
 
     void Start()
     {
@@ -18,8 +19,16 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
-        
         movement = new Vector2(moveHorizontal, moveVertical).normalized;
+        
+        if (movement.sqrMagnitude > 0.1)
+        {
+            animator.SetFloat("x", moveHorizontal);
+            animator.SetFloat("y", moveVertical);
+        }
+
+        
+        animator.SetFloat("speed", movement.magnitude);
     }
 
     void FixedUpdate()
