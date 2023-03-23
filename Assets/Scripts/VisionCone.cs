@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class VisionCone : MonoBehaviour
 {
-    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask walllayerMask;
+    [SerializeField] private LayerMask playerlayerMask;
     private Mesh mesh;
     public float fov = 90f;
     public float viewDistance = 10f;
@@ -12,6 +13,9 @@ public class VisionCone : MonoBehaviour
     public float startingAngle;
     public int rayCount = 50;
     public Collider2D walls;
+    public GameObject Player;
+    public GameObject PlayerDetect;
+    public PolygonCollider2D collider;
 
     private void Start()
     {
@@ -44,7 +48,7 @@ public class VisionCone : MonoBehaviour
         for (int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, walllayerMask);
             if (raycastHit2D.collider == null)
             {
                 // No hit
@@ -71,10 +75,32 @@ public class VisionCone : MonoBehaviour
         }
 
 
+        Vector2[] path = new Vector2[vertices.Length];
+        for(int i = 0; i < vertices.Length; i++)
+        {
+            path[i] = new Vector2(vertices[i].x, vertices[i].y);
+        }
+
+        collider.SetPath(0, path);
+
+
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
         mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
+        mesh.RecalculateNormals();
+        Material mat = Resources.Load("redcone") as Material;
+        GetComponent<MeshRenderer>().materials[0] = mat;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision != null)
+        {
+            if (collision.gameObject == PlayerDetect)
+            {
+            }
+        }
     }
 
     public void SetOrigin(Vector3 origin)
