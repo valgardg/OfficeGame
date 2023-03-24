@@ -15,14 +15,19 @@ public class VisionCone : MonoBehaviour
     public Collider2D walls;
     public GameObject Player;
     public GameObject PlayerDetect;
+    public GameObject PlayerSpotted;
     public PolygonCollider2D collider;
+    //Time it takes for enemy to catch player in seconds
+    public float timetocatch;
+    public bool spottedPlayer;
+
+    private float timerSeconds;
 
     private void Start()
     {
+        timerSeconds = 0;
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-        fov = 90f;
-        viewDistance = 10f;
         origin = Vector3.zero;
     }
 
@@ -79,6 +84,7 @@ public class VisionCone : MonoBehaviour
         for(int i = 0; i < vertices.Length; i++)
         {
             path[i] = new Vector2(vertices[i].x, vertices[i].y);
+            uv[i] = path[i].normalized;
         }
 
         collider.SetPath(0, path);
@@ -88,19 +94,56 @@ public class VisionCone : MonoBehaviour
         mesh.uv = uv;
         mesh.triangles = triangles;
         mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
-        mesh.RecalculateNormals();
-        Material mat = Resources.Load("redcone") as Material;
-        GetComponent<MeshRenderer>().materials[0] = mat;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null)
         {
-            if (collision.gameObject == PlayerDetect)
+            if (collision.gameObject == PlayerSpotted)
             {
+                spottedPlayer = true;
             }
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision == null)
+        {
+            return;
+        }
+        if (collision.gameObject != PlayerDetect)
+        {
+            return;
+        }
+        if (timerSeconds >= timetocatch)
+        {
+            print("player caught");
+            return;
+        }
+
+        Vector3 vectorToPlayer = Player.transform.position - transform.position;
+        vectorToPlayer = new Vector3(vectorToPlayer.y, vectorToPlayer.x, vectorToPlayer.z);
+        SetAimDirection(vectorToPlayer);
+        timerSeconds += Time.deltaTime;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject == PlayerDetect && spottedPlayer)
+        {
+            spottedPlayer = false;
+            timerSeconds = 0;
+        }
+    }
+
+    public void SetAimDirection(Vector3 aimDirection)
+    {
+        float angle = GetAngleFromVectorFloat(aimDirection);
+        startingAngle = angle + fov / 2;
+        SetOrigin(transform.position);
+
     }
 
     public void SetOrigin(Vector3 origin)
@@ -127,6 +170,6 @@ public class VisionCone : MonoBehaviour
     {
         vector = vector.normalized;
         float n = Mathf.Atan2(vector.x, vector.y) * Mathf.Rad2Deg;
-        return n % 360;
+        return n;
     }
 }

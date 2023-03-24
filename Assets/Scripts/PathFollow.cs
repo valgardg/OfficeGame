@@ -18,7 +18,8 @@ public class PathFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (!GetComponentInChildren<VisionCone>().spottedPlayer) Move();
+        
     }
 
     void Move()
