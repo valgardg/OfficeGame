@@ -20,7 +20,7 @@ public class VisionCone : MonoBehaviour
     //Time it takes for enemy to catch player in seconds
     public float timetocatch;
     public bool spottedPlayer;
-
+    
     private float timerSeconds;
 
     private void Start()
@@ -35,6 +35,14 @@ public class VisionCone : MonoBehaviour
     {
         SetOrigin(transform.position);
         startingAngle = startingAngle % 360;
+        if (!spottedPlayer && timerSeconds > 0)
+        {
+            timerSeconds -= Time.deltaTime;
+            if (timerSeconds < 0)
+            {
+                timerSeconds = 0;
+            }
+        }
     }
 
     private void LateUpdate()
@@ -134,7 +142,6 @@ public class VisionCone : MonoBehaviour
         if (other.gameObject == PlayerDetect && spottedPlayer)
         {
             spottedPlayer = false;
-            timerSeconds = 0;
         }
     }
 
