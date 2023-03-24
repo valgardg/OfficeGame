@@ -119,7 +119,7 @@ public class VisionCone : MonoBehaviour
         }
         if (timerSeconds >= timetocatch)
         {
-            print("player caught");
+            GameManager.Instance.GameOver();
             return;
         }
 
