@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
+    public GameObject gameoverscreen;
     public bool gameover;
 
     private void Awake()
@@ -28,5 +29,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameover = true;
+        gameoverscreen.SetActive(true);
     }
 }

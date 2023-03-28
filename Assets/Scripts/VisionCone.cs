@@ -10,7 +10,7 @@ public class VisionCone : MonoBehaviour
     public float fov = 90f;
     public float viewDistance = 10f;
     private Vector3 origin;
-    public float startingAngle;
+    public float lookingAngle;
     public int rayCount = 50;
     public Collider2D walls;
     public GameObject Player;
@@ -34,7 +34,7 @@ public class VisionCone : MonoBehaviour
     private void Update()
     {
         SetOrigin(transform.position);
-        startingAngle = startingAngle % 360;
+        lookingAngle = lookingAngle % 360;
         if (!spottedPlayer && timerSeconds > 0)
         {
             timerSeconds -= Time.deltaTime;
@@ -47,7 +47,7 @@ public class VisionCone : MonoBehaviour
 
     private void LateUpdate()
     {
-        float angle = startingAngle;
+        float angle = lookingAngle + fov/2;
         float angleIncrease = fov / rayCount;
 
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
@@ -128,6 +128,7 @@ public class VisionCone : MonoBehaviour
         if (timerSeconds >= timetocatch)
         {
             GameManager.Instance.GameOver();
+            print("gameover");
             return;
         }
 
@@ -148,9 +149,14 @@ public class VisionCone : MonoBehaviour
     public void SetAimDirection(Vector3 aimDirection)
     {
         float angle = GetAngleFromVectorFloat(aimDirection);
-        startingAngle = angle + fov / 2;
+        lookingAngle = angle;
         SetOrigin(transform.position);
 
+    }
+    public void SetAimDirection(float aimDirection)
+    {
+        lookingAngle = aimDirection;
+        SetOrigin(transform.position);
     }
 
     public void SetOrigin(Vector3 origin)
