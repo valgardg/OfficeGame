@@ -12,9 +12,12 @@ public class Stickler : MonoBehaviour
     private Vector3 initialPosition;
     public GameObject visionCone;
     public Animator animator;
+
+    public float coneLookingAngle;
     // Start is called before the first frame update
     void Start()
     {
+        coneLookingAngle = visionCone.GetComponent<VisionCone>().lookingAngle;
         initialPosition = transform.position;
         StartCoroutine(PeekRoutine());
     }
@@ -60,6 +63,10 @@ public class Stickler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!visionCone.GetComponent<VisionCone>().spottedPlayer)
+        {
+            visionCone.GetComponent<VisionCone>().lookingAngle = coneLookingAngle;
+        }
         
     }
 }
