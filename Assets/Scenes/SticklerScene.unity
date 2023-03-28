@@ -10707,6 +10707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stickler
       objectReference: {fileID: 0}
+    - target: {fileID: 6241502958537447856, guid: f1ef894123212412eafc9ec45655810f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2f27cf1967ffff4e9bfa29a4a33eebc, type: 2}
     - target: {fileID: 6241502958537447862, guid: f1ef894123212412eafc9ec45655810f, type: 3}
       propertyPath: Player
       value: 

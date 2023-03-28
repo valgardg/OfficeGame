@@ -17,6 +17,8 @@ public class VisionCone : MonoBehaviour
     public GameObject PlayerDetect;
     public GameObject PlayerSpotted;
     public PolygonCollider2D collider;
+    private float angle;
+    private float angleIncrease;
     //Time it takes for enemy to catch player in seconds
     public float timetocatch;
     public bool spottedPlayer;
@@ -43,12 +45,13 @@ public class VisionCone : MonoBehaviour
                 timerSeconds = 0;
             }
         }
+        angle = lookingAngle + fov/2;
+        angleIncrease = fov / rayCount;
     }
 
     private void LateUpdate()
     {
-        float angle = lookingAngle + fov/2;
-        float angleIncrease = fov / rayCount;
+
 
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
