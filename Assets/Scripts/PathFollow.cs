@@ -14,91 +14,78 @@ public class PathFollow : MonoBehaviour
     public GameObject Cone;
     public float speed = 2f;
     public float rotateConeSpeed = 2f;
+    public float distanceExpand;
 
     private Rotation rotating = Rotation.NotRotating; 
-    private float originalspeed;
+    private bool fixingRotation;
+    private float originalrotation;
     private int pointIndex = 0;
+    private VisionCone ConeObj;
+    private waypointdata PointData;
+    private float distance;
     // Start is called before the first frame update
     void Start()
     {
-        originalspeed = speed;
+        ConeObj = Cone.GetComponent<VisionCone>();
+        distance = ConeObj.viewDistance;
+        originalrotation = points[pointIndex].GetComponent<waypointdata>().angle;
         transform.position = new Vector3(points[pointIndex].transform.position.x, points[pointIndex].transform.position.y, transform.position.z);
         pointIndex++;
+        PointData = points[pointIndex].GetComponent<waypointdata>();
+        fixingRotation = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GetComponentInChildren<VisionCone>().spottedPlayer) Move();
-        
-    }
-
-    void Move()
-    {
-        VisionCone ConeObj = Cone.GetComponent<VisionCone>();
-        waypointdata PointData = points[pointIndex].GetComponent<waypointdata>();
-        if (rotating != Rotation.NotRotating)
+        bool playerspotted = (GetComponentInChildren<VisionCone>().spottedPlayer);
+        if (!playerspotted && fixingRotation)
         {
-            float nextAngle;
-
-            if (rotating == Rotation.AntiClockwise)
-            {
-                if (ConeObj.lookingAngle >= PointData.angle)
-                {
-                    nextAngle = PointData.angle;
-                    rotating = Rotation.NotRotating;
-                }
-                else nextAngle = ConeObj.lookingAngle += rotateConeSpeed*Time.deltaTime;
-            }
-            else
-            {
-                if (ConeObj.lookingAngle <= PointData.angle)
-                {
-                    nextAngle = PointData.angle;
-                    rotating = Rotation.NotRotating;
-                }
-                else nextAngle = ConeObj.lookingAngle -= rotateConeSpeed * Time.deltaTime;
-            }
-
+            ConeObj.viewDistance = distance;
+            ConeObj.lookingAngle = originalrotation;
+            fixingRotation = false;
+            rotating = Rotation.NotRotating;
+        }
+        else if (!playerspotted && rotating != Rotation.NotRotating)
+        {
+            Rotate(originalrotation);
             if (rotating == Rotation.NotRotating)
             {
                 if (PointData.resetToZero)
                 {
-                    nextAngle = 0;
+                    ConeObj.SetAimDirection(0f);
+                    originalrotation = 0f;
                 }
                 pointIndex++;
                 if (pointIndex >= points.Length)
                 {
                     pointIndex = 0;
                 }
-            }
 
-            ConeObj.SetAimDirection(nextAngle);
-        }
-        else if (pointIndex <= points.Length - 1)
-        {
-            Vector2 newpos = Vector2.MoveTowards(transform.position, points[pointIndex].transform.position, speed*Time.deltaTime);
-            transform.position = new Vector3(newpos.x, newpos.y, transform.position.z);
-            if (transform.position.x == points[pointIndex].transform.position.x && transform.position.y == points[pointIndex].transform.position.y)
-            {
-                PointData.angle = ConvertTo360(PointData.angle);
-                ConeObj.lookingAngle = ConvertTo360(ConeObj.lookingAngle);
-                print(PointData.GetAngle());
-                print(ConeObj.lookingAngle);
-                if (PointData.angle > ConeObj.lookingAngle)
-                {
-                    rotating = Rotation.AntiClockwise;
-                }
-                else
-                {
-                    rotating = Rotation.Clockwise;
-                }
+                PointData = points[pointIndex].GetComponent<waypointdata>();
             }
         }
-        else {
-            pointIndex = 0;
-            Move();
+        else if (!playerspotted) Move();
+        else
+        {
+            ConeObj.viewDistance = distance + distanceExpand;
+            rotating = Rotation.NotRotating;
+            fixingRotation = true;
         }
+        
+    }
+
+    void Move()
+    {
+        
+        Vector2 newpos = Vector2.MoveTowards(transform.position, points[pointIndex].transform.position, speed*Time.deltaTime);
+        transform.position = new Vector3(newpos.x, newpos.y, transform.position.z);
+        if (transform.position.x == points[pointIndex].transform.position.x && transform.position.y == points[pointIndex].transform.position.y)
+        {
+            Rotate(PointData.angle);
+            originalrotation = PointData.angle;
+        }
+        
     }
     public float ConvertTo360(float angle)
     {
@@ -107,5 +94,45 @@ public class PathFollow : MonoBehaviour
             return 180 + (-angle);
         }
         return angle;
+    }
+
+    public void Rotate(float angle)
+    {
+        if (rotating != Rotation.NotRotating)
+        {
+            float nextAngle;
+
+            if (rotating == Rotation.AntiClockwise)
+            {
+                if (ConeObj.lookingAngle >= angle)
+                {
+                    nextAngle = angle;
+                    rotating = Rotation.NotRotating;
+
+                }
+                else nextAngle = ConeObj.lookingAngle += rotateConeSpeed * Time.deltaTime;
+            }
+            else
+            {
+                if (ConeObj.lookingAngle <= angle)
+                {
+                    nextAngle = angle;
+                    rotating = Rotation.NotRotating;
+                }
+                else nextAngle = ConeObj.lookingAngle -= rotateConeSpeed * Time.deltaTime;
+            }
+            ConeObj.SetAimDirection(nextAngle);
+        }
+        else
+        {
+            if (ConvertTo360(angle) > ConvertTo360(ConeObj.lookingAngle))
+            {
+                rotating = Rotation.AntiClockwise;
+            }
+            else
+            {
+                rotating = Rotation.Clockwise;
+            }
+        }
     }
 }
