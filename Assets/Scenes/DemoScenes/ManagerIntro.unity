@@ -217,6 +217,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4054021597935813793, guid: 8731246d69ac3ab48be0c4e1d7b62675, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4054021597935813797, guid: 8731246d69ac3ab48be0c4e1d7b62675, type: 3}
       propertyPath: m_Name
       value: DetectionPlayer
@@ -4568,6 +4572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1456819282}
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &2146224636
 PrefabInstance:
   m_ObjectHideFlags: 0
