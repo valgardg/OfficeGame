@@ -7,8 +7,6 @@ using System;
 
 public class HideObjectScript : MonoBehaviour
 {
-    public GameObject hidingObject;
-    public TextMeshProUGUI hideText;
     public GameObject hidingIndicator;
     public GameObject keyIndicator;
     public SpriteRenderer spriteRender;
@@ -29,10 +27,6 @@ public class HideObjectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hiding){
-            DisplayStopHiding();
-        }
-
         if(Input.GetKeyDown(KeyCode.E) && hiding){
                 Debug.Log("unhifde player!");
                 UnhidePlayer();
@@ -64,13 +58,8 @@ public class HideObjectScript : MonoBehaviour
     void UnhidePlayer(){
         player.transform.position = previousPlayerPosition;
         hiding = false;
-        hideText.text = "";
         player.SetActive(true);
         hidingIndicator.SetActive(false);
-    }
-
-    void DisplayStopHiding(){
-        //hideText.text = "Press E to stop hiding!";
     }
 
     void OnTriggerEnter2D(Collider2D other){
@@ -86,7 +75,6 @@ public class HideObjectScript : MonoBehaviour
 
         if(other.gameObject.CompareTag("Player")){
             player = other.gameObject;
-            //hideText.text = "Press E to hide!";
             keyIndicator.SetActive(true);
             canHide = true;
             spriteRender.sprite = highlightedSprite;
@@ -99,7 +87,6 @@ public class HideObjectScript : MonoBehaviour
         }
 
         if(other.gameObject.CompareTag("Player")){
-            //hideText.text = "";
             keyIndicator.SetActive(false);
             canHide = false;
             spriteRender.sprite = defaultSprite;

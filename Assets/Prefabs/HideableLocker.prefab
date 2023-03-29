@@ -71,8 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8206a4e03ab324cbea7d45fcaecb6be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hidingObject: {fileID: 0}
-  hideText: {fileID: 0}
   hidingIndicator: {fileID: 3626101856824224193}
   keyIndicator: {fileID: 3626101857009762699}
   spriteRender: {fileID: 3626101857009784210}
@@ -287,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 3626101857009784208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.66, y: -3.16, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3626101856507318122}
@@ -336,7 +334,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: c55a86f8cdb154dd69bfff49f0dcc6ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
