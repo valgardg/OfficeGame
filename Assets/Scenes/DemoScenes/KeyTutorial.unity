@@ -2175,7 +2175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2839231043585689055, guid: 2de89d8d5afc64ce39f399a4749de3e6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.6325
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 2839231043585689055, guid: 2de89d8d5afc64ce39f399a4749de3e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11185,7 +11185,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.32297972, g: 0.3367895, b: 0.3584906, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -11202,7 +11202,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
