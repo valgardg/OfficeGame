@@ -3862,6 +3862,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 90
   resetToZero: 0
+--- !u!60 &1665005991 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5406332757526359793, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+  m_PrefabInstance: {fileID: 5406332757781759628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1743104436
 GameObject:
   m_ObjectHideFlags: 0
@@ -8725,6 +8730,10 @@ PrefabInstance:
       propertyPath: PlayerDetect
       value: 
       objectReference: {fileID: 1743104436}
+    - target: {fileID: 5406332757526359792, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+      propertyPath: PolyCollider
+      value: 
+      objectReference: {fileID: 1665005991}
     - target: {fileID: 5406332757526359792, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: PlayerSpotted
       value: 

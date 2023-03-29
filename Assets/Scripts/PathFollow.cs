@@ -82,10 +82,18 @@ public class PathFollow : MonoBehaviour
         transform.position = new Vector3(newpos.x, newpos.y, transform.position.z);
         if (transform.position.x == points[pointIndex].transform.position.x && transform.position.y == points[pointIndex].transform.position.y)
         {
-            Rotate(PointData.angle);
+            ConeObj.SetAimDirection(PointData.angle);
             originalrotation = PointData.angle;
+            //Placeholder since Rotate function is buggy
+            pointIndex++;
+            if (pointIndex >= points.Length)
+            {
+                pointIndex = 0;
+            }
+            PointData = points[pointIndex].GetComponent<waypointdata>();
+            ///////////////////////////////////////////
         }
-        
+
     }
     public float ConvertTo360(float angle)
     {
@@ -93,39 +101,41 @@ public class PathFollow : MonoBehaviour
         {
             return 180 + (-angle);
         }
-        return angle;
+        return angle % 360;
     }
 
     public void Rotate(float angle)
     {
+        float DAngle = Mathf.Abs(ConvertTo360(ConeObj.lookingAngle) - ConvertTo360(angle));
         if (rotating != Rotation.NotRotating)
         {
             float nextAngle;
-
             if (rotating == Rotation.AntiClockwise)
             {
-                if (ConeObj.lookingAngle >= angle)
+                nextAngle = ConeObj.lookingAngle += rotateConeSpeed * Time.deltaTime;
+                DAngle -= rotateConeSpeed * Time.deltaTime;
+                if (DAngle <= 0)
                 {
                     nextAngle = angle;
                     rotating = Rotation.NotRotating;
 
                 }
-                else nextAngle = ConeObj.lookingAngle += rotateConeSpeed * Time.deltaTime;
             }
             else
             {
-                if (ConeObj.lookingAngle <= angle)
+                nextAngle = ConeObj.lookingAngle -= rotateConeSpeed * Time.deltaTime;
+                DAngle -= rotateConeSpeed * Time.deltaTime;
+                if (DAngle <= 0)
                 {
                     nextAngle = angle;
                     rotating = Rotation.NotRotating;
                 }
-                else nextAngle = ConeObj.lookingAngle -= rotateConeSpeed * Time.deltaTime;
             }
             ConeObj.SetAimDirection(nextAngle);
         }
         else
         {
-            if (ConvertTo360(angle) > ConvertTo360(ConeObj.lookingAngle))
+            if (DAngle < 180)
             {
                 rotating = Rotation.AntiClockwise;
             }
@@ -133,6 +143,7 @@ public class PathFollow : MonoBehaviour
             {
                 rotating = Rotation.Clockwise;
             }
+            print(rotating);
         }
     }
 }

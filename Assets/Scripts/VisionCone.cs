@@ -16,7 +16,7 @@ public class VisionCone : MonoBehaviour
     public GameObject Player;
     public GameObject PlayerDetect;
     public GameObject PlayerSpotted;
-    public PolygonCollider2D collider;
+    public PolygonCollider2D PolyCollider;
     private float angle;
     private float angleIncrease;
     //Time it takes for enemy to catch player in seconds
@@ -98,7 +98,7 @@ public class VisionCone : MonoBehaviour
             uv[i] = path[i].normalized;
         }
 
-        collider.SetPath(0, path);
+        PolyCollider.SetPath(0, path);
 
 
         mesh.vertices = vertices;
