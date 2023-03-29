@@ -14,21 +14,18 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         gameover = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        gameoverscreen.SetActive(gameover);
     }
 
     public void GameOver()
     {
         gameover = true;
-        gameoverscreen.SetActive(true);
     }
 }

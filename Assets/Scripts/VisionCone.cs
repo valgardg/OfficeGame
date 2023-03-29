@@ -143,6 +143,7 @@ public class VisionCone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        print("exit");
         if (other.gameObject == PlayerDetect && spottedPlayer)
         {
             spottedPlayer = false;
