@@ -6,6 +6,8 @@ public class CameraControls : MonoBehaviour
 {
 
     public GameObject Player;
+    public float xOffset;
+    public float yOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,7 @@ public class CameraControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, transform.position.z);
+        transform.position = new Vector3(Player.transform.position.x + xOffset, Player.transform.position.y + yOffset, transform.position.z);
+
     }
 }
