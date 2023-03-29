@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stickler : MonoBehaviour
 {
     public float peekInterval;
+    public float warningTime;
     public float peekDistance;
     public float peekSpeed;
     public float peekDuration;
@@ -12,6 +13,7 @@ public class Stickler : MonoBehaviour
     private Vector3 initialPosition;
     public GameObject visionCone;
     public Animator animator;
+    public GameObject warning;
 
     public float coneLookingAngle;
     // Start is called before the first frame update
@@ -19,15 +21,23 @@ public class Stickler : MonoBehaviour
     {
         coneLookingAngle = visionCone.GetComponent<VisionCone>().lookingAngle;
         initialPosition = transform.position;
+        warning.SetActive(false);
         StartCoroutine(PeekRoutine());
+
     }
 
     IEnumerator PeekRoutine()
     {
         while (true)
         {
+            
             // Wait for the peekInterval
             yield return new WaitForSeconds(peekInterval);
+            warning.SetActive(true);
+            yield return new WaitForSeconds(warningTime);
+            warning.SetActive(false);
+
+            
 
             // Move up
             float targetY = initialPosition.y + peekDistance;
@@ -37,6 +47,7 @@ public class Stickler : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y + step, transform.position.z);
                 yield return null;
             }
+
 
             // Wait for the peekDuration
             toggleVisionCone(true);
