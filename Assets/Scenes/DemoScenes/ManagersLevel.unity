@@ -315,8 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 180
-  resetToZero: 0
+  angle: 358
+  resetToZero: 1
 --- !u!1 &186103604
 GameObject:
   m_ObjectHideFlags: 0
@@ -7865,8 +7865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 180
-  resetToZero: 0
+  angle: 358
+  resetToZero: 1
 --- !u!1 &425659399
 GameObject:
   m_ObjectHideFlags: 0
@@ -7957,7 +7957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 180
+  angle: 270
   resetToZero: 0
 --- !u!1 &453951930
 GameObject:
@@ -8473,7 +8473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 180
+  angle: 270
   resetToZero: 0
 --- !u!60 &886120683 stripped
 PolygonCollider2D:
@@ -8597,7 +8597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 180
+  angle: 90
   resetToZero: 0
 --- !u!1 &1152877774
 GameObject:
@@ -9203,7 +9203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 180
+  angle: 90
   resetToZero: 0
 --- !u!1 &2064036698
 GameObject:
@@ -9339,6 +9339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1456819282}
+  xOffset: 0
+  yOffset: 0
 --- !u!1001 &2146224636
 PrefabInstance:
   m_ObjectHideFlags: 0
