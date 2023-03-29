@@ -8325,6 +8325,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4054021597935813793, guid: 8731246d69ac3ab48be0c4e1d7b62675, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4054021597935813797, guid: 8731246d69ac3ab48be0c4e1d7b62675, type: 3}
       propertyPath: m_Name
       value: DetectionPlayer
@@ -8726,40 +8730,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.size
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[0]
       value: 
-      objectReference: {fileID: 212115486}
+      objectReference: {fileID: 168010493}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[1]
       value: 
-      objectReference: {fileID: 21982992}
+      objectReference: {fileID: 762943512}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[2]
       value: 
-      objectReference: {fileID: 760421678}
+      objectReference: {fileID: 374053100}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[3]
       value: 
-      objectReference: {fileID: 1152877774}
+      objectReference: {fileID: 1997905213}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[4]
       value: 
-      objectReference: {fileID: 453951930}
+      objectReference: {fileID: 1716007608}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[5]
       value: 
-      objectReference: {fileID: 21982992}
+      objectReference: {fileID: 441727926}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[6]
       value: 
-      objectReference: {fileID: 760421678}
+      objectReference: {fileID: 425659399}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[7]
       value: 
-      objectReference: {fileID: 1152877774}
+      objectReference: {fileID: 1056302899}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.data[8]
       value: 
