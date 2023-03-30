@@ -7,11 +7,26 @@ public class exit : MonoBehaviour
 {
     public GameObject player;
     public string levelLoad;
+    private bool exiting;
+
+    private void Update()
+    {
+        if (exiting)
+        {
+            print("exiting");
+            if (!GameManager.Instance.fadingOut)
+            {
+                SceneManager.LoadScene(levelLoad);
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == player)
         {
-            SceneManager.LoadScene(levelLoad);
+            GameManager.Instance.Stop();
+            exiting = true;
         }
     }
 }

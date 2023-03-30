@@ -17,18 +17,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
-        float moveVertical = Input.GetAxisRaw("Vertical");
-        movement = new Vector2(moveHorizontal, moveVertical).normalized;
-        
-        if (movement.sqrMagnitude > 0.1)
+        if (!GameManager.Instance.stopped) 
         {
-            animator.SetFloat("x", moveHorizontal);
-            animator.SetFloat("y", moveVertical);
-        }
+            float moveHorizontal = Input.GetAxisRaw("Horizontal");
+            float moveVertical = Input.GetAxisRaw("Vertical");
+            movement = new Vector2(moveHorizontal, moveVertical).normalized;
 
-        
-        animator.SetFloat("speed", movement.magnitude);
+            if (movement.sqrMagnitude > 0.1)
+            {
+                animator.SetFloat("x", moveHorizontal);
+                animator.SetFloat("y", moveVertical);
+            }
+
+            animator.SetFloat("speed", movement.magnitude);
+        }
     }
 
     void FixedUpdate()
