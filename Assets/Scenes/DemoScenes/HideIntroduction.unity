@@ -4816,12 +4816,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113611566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96795afc45352c945b337787d54b2f01, type: 3}
+  m_Script: {fileID: 11500000, guid: e364848ca727a6247b0201c9f7701aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1456819282}
+  player: {fileID: 1456819282}
   xOffset: 0
-  yOffset: 0
+  yOffset: 3
 --- !u!1001 &2146224636
 PrefabInstance:
   m_ObjectHideFlags: 0

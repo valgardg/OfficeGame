@@ -5,6 +5,9 @@ using UnityEngine;
 public class FollowPlayerScript : MonoBehaviour
 {
     public GameObject player;
+
+    public float xOffset;
+    public float yOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +18,7 @@ public class FollowPlayerScript : MonoBehaviour
     void Update()
     {
         if(player.activeSelf){
-            Vector3 playerPosition = player.transform.position;
-            transform.position = new Vector3(playerPosition.x, playerPosition.y, transform.position.z);
+            transform.position = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, transform.position.z);
         }
     }
 }
