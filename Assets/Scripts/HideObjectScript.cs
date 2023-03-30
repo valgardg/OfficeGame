@@ -28,10 +28,8 @@ public class HideObjectScript : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && hiding){
-                Debug.Log("unhifde player!");
                 UnhidePlayer();
         }else if(Input.GetKeyDown(KeyCode.E) && canHide){
-                Debug.Log("hide player!");
                 HidePlayer();
         }
 
@@ -45,7 +43,6 @@ public class HideObjectScript : MonoBehaviour
         player.transform.position = new Vector3(6.0f, 2.0f, 0.0f);
         // set hiding to true
         hiding = true;
-        Debug.Log(hiding);
         player.SetActive(false);
         spriteRender.sprite = defaultSprite;
         hidingIndicator.SetActive(true);

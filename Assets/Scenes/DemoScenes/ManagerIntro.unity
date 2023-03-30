@@ -4192,7 +4192,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.150648
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4237,7 +4237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1456819282}
   xOffset: 0
-  yOffset: 0
+  yOffset: 3
 --- !u!1001 &2146224636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4265,6 +4265,22 @@ PrefabInstance:
       propertyPath: PlayerSpotted
       value: 
       objectReference: {fileID: 240439953}
+    - target: {fileID: 5406332758244086015, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406332758244086015, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406332758244086015, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.103
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406332758244086015, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.198
+      objectReference: {fileID: 0}
     - target: {fileID: 5406332758403497985, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: m_RootOrder
       value: 1
