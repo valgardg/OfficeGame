@@ -31,7 +31,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Color curColor = fadeInOut.GetComponent<Image>().color;
+        Color curColor = Color.black;
+        if (fadeInOut)
+        {
+            curColor = fadeInOut.GetComponent<Image>().color;
+        }
         if (fadingIn)
         {
             FadeIn(curColor);
@@ -40,7 +44,10 @@ public class GameManager : MonoBehaviour
         {
             FadeOut(curColor);
         }
-        gameoverscreen.SetActive(gameover);
+        if (gameoverscreen)
+        {
+            gameoverscreen.SetActive(gameover);
+        }
     }
 
     public void Stop()

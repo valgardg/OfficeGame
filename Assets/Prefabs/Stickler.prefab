@@ -313,7 +313,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   PlayerDetect: {fileID: 0}
   PlayerSpotted: {fileID: 0}
-  collider: {fileID: 6241502958537447857}
+  PolyCollider: {fileID: 0}
   timetocatch: 2
   spottedPlayer: 0
 --- !u!33 &6241502958537447863
@@ -344,7 +344,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 039b923a685ce554087e107d23014b8a, type: 2}
+  - {fileID: 2100000, guid: e2f27cf1967ffff4e9bfa29a4a33eebc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

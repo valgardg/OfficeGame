@@ -8434,6 +8434,10 @@ PrefabInstance:
       propertyPath: PlayerSpotted
       value: 
       objectReference: {fileID: 240439953}
+    - target: {fileID: 5406332757526359796, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5406332758244086015, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
