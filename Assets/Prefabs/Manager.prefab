@@ -412,11 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d129169cd8b37548bd06b31c7401103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  points: []
   Cone: {fileID: 5406332757526359796}
   speed: 10
   rotateConeSpeed: 100

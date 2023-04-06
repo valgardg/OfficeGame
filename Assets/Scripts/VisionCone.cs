@@ -12,10 +12,7 @@ public class VisionCone : MonoBehaviour
     private Vector3 origin;
     public float lookingAngle;
     public int rayCount = 50;
-    public Collider2D walls;
     public GameObject Player;
-    public GameObject PlayerDetect;
-    public GameObject PlayerSpotted;
     public PolygonCollider2D PolyCollider;
     private float angle;
     private float angleIncrease;
@@ -24,6 +21,8 @@ public class VisionCone : MonoBehaviour
     public bool spottedPlayer;
     
     private float timerSeconds;
+    private GameObject PlayerDetect;
+    private GameObject PlayerSpotted;
 
     private void Start()
     {
@@ -31,6 +30,8 @@ public class VisionCone : MonoBehaviour
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         origin = Vector3.zero;
+        PlayerDetect = Player.transform.GetChild(0).gameObject;
+        PlayerSpotted = Player.transform.GetChild(1).gameObject;
     }
 
     private void Update()

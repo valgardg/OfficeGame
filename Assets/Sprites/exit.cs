@@ -13,9 +13,9 @@ public class exit : MonoBehaviour
     {
         if (exiting)
         {
-            print("exiting");
             if (!GameManager.Instance.fadingOut)
             {
+                print(levelLoad);
                 SceneManager.LoadScene(levelLoad);
             }
         }
