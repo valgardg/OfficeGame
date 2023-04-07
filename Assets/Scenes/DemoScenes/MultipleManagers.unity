@@ -6393,7 +6393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: speed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.size
@@ -9350,7 +9350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: speed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5406332758403497986, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: points.Array.size

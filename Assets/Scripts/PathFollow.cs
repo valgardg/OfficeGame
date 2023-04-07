@@ -15,6 +15,7 @@ public class PathFollow : MonoBehaviour
     public float speed = 2f;
     public float rotateConeSpeed = 2f;
     public float distanceExpand;
+    public bool loop = true;
 
     private Rotation rotating = Rotation.NotRotating; 
     private bool fixingRotation;
@@ -82,16 +83,17 @@ public class PathFollow : MonoBehaviour
         transform.position = new Vector3(newpos.x, newpos.y, transform.position.z);
         if (transform.position.x == points[pointIndex].transform.position.x && transform.position.y == points[pointIndex].transform.position.y)
         {
-            ConeObj.SetAimDirection(PointData.angle);
             originalrotation = PointData.angle;
-            //Placeholder since Rotate function is buggy
+            Rotate(originalrotation);
+            /*//Placeholder since Rotate function is buggy
             pointIndex++;
             if (pointIndex >= points.Length)
             {
-                pointIndex = 0;
+                if (loop) pointIndex = 0;
+                else pointIndex = points.Length-1;
             }
             PointData = points[pointIndex].GetComponent<waypointdata>();
-            ///////////////////////////////////////////
+            ///////////////////////////////////////////*/
         }
 
     }
@@ -135,13 +137,13 @@ public class PathFollow : MonoBehaviour
         }
         else
         {
-            if (DAngle < 180)
+            if (PointData.turningClockwise)
             {
-                rotating = Rotation.AntiClockwise;
+                rotating = Rotation.Clockwise;
             }
             else
             {
-                rotating = Rotation.Clockwise;
+                rotating = Rotation.AntiClockwise;
             }
             print(rotating);
         }

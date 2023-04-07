@@ -6,6 +6,7 @@ public class waypointdata : MonoBehaviour
 {
     public float angle;
     public bool resetToZero;
+    public bool turningClockwise;
 
     public float GetAngle()
     {
