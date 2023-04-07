@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScenes/KeyTutorial.unity
     guid: d8e5c4d4f0f3b854b9f87aae051e1a1c
   - enabled: 1
-    path: Assets/Scenes/DemoScenes/SticklerLevel.unity
+    path: Assets/Scenes/DemoScenes/SticklerLevel2.unity
     guid: aaf57e2c803f54cd2a3dfa8c79c92ca9
   - enabled: 1
     path: Assets/Scenes/DemoScenes/SticklerIntroduction.unity
