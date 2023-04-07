@@ -14,6 +14,8 @@ public class Stickler : MonoBehaviour
     public bool spottedPlayer;
     private float originalFov;
     private float originalViewDistance;
+    private float angleResetSpeed = 0.1f;
+    private bool resetAngleRunning = false;
 
     private Vector3 initialPosition;
     public GameObject visionCone;
@@ -46,8 +48,6 @@ IEnumerator PeekRoutine()
         yield return new WaitForSeconds(warningTime);
         warning.SetActive(false);
 
-        
-
         // Move up
         float targetY = initialPosition.y + peekDistance;
         while (transform.position.y < targetY)
@@ -56,7 +56,6 @@ IEnumerator PeekRoutine()
             transform.position = new Vector3(transform.position.x, transform.position.y + step, transform.position.z);
             yield return null;
         }
-
 
         // Wait for the peekDuration
         toggleVisionCone(true);
@@ -70,6 +69,9 @@ IEnumerator PeekRoutine()
             if (spottedPlayer)
             {
                 playerDespotted = true;
+                // Shake the enemy up and down while the player is spotted
+                float shakeAmount = 2f;
+                transform.position += new Vector3(0, Mathf.Sin(Time.time * 40f) * shakeAmount * Time.deltaTime, 0);
             }
             
             elapsedTime += Time.deltaTime;
@@ -79,7 +81,7 @@ IEnumerator PeekRoutine()
         // Add a 1-second delay if the player was spotted and then despotted
         if (playerDespotted)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
 
         animator.SetBool("Looking", false);
@@ -94,10 +96,49 @@ IEnumerator PeekRoutine()
         }
     }
 }
+IEnumerator ResetAngle()
+{
+    resetAngleRunning = true;
+    float currentAngle = visionCone.GetComponent<VisionCone>().lookingAngle;
+    float currentFov = visionCone.GetComponent<VisionCone>().fov;
+    float currentViewDistance = visionCone.GetComponent<VisionCone>().viewDistance;
+
+    float elapsedTime = 0f;
+    while ((Mathf.Abs(currentAngle - coneLookingAngle) > 0.01f || Mathf.Abs(currentFov - originalFov) > 0.01f || Mathf.Abs(currentViewDistance - originalViewDistance) > 0.01f) && !spottedPlayer)
+    {
+        elapsedTime += Time.deltaTime;
+        float lerpFactor = elapsedTime * angleResetSpeed;
+
+        currentAngle = Mathf.Lerp(currentAngle, coneLookingAngle, lerpFactor);
+        currentFov = Mathf.Lerp(currentFov, originalFov, (lerpFactor/3));
+        currentViewDistance = Mathf.Lerp(currentViewDistance, originalViewDistance, lerpFactor);
+
+        visionCone.GetComponent<VisionCone>().lookingAngle = currentAngle;
+        visionCone.GetComponent<VisionCone>().fov = currentFov;
+        visionCone.GetComponent<VisionCone>().viewDistance = currentViewDistance;
+
+        yield return null;
+    }
+    resetAngleRunning = false;
+}
 
 
 
+    IEnumerator SetFovOverTime(float targetFov, float duration)
+    {
+        float startFov = visionCone.GetComponent<VisionCone>().fov;
+        float elapsedTime = 0f;
 
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newFov = Mathf.Lerp(startFov, targetFov, elapsedTime / duration);
+            visionCone.GetComponent<VisionCone>().fov = newFov;
+            yield return null;
+        }
+
+        visionCone.GetComponent<VisionCone>().fov = targetFov;
+    }
 
     private void toggleVisionCone(bool active)
     {
@@ -107,18 +148,22 @@ IEnumerator PeekRoutine()
     // Update is called once per frame
     void Update()
     {
-        if (!visionCone.GetComponent<VisionCone>().spottedPlayer)
+        bool playerCurrentlySpotted = visionCone.GetComponent<VisionCone>().spottedPlayer;
+        if (!playerCurrentlySpotted)
         {
+            if (!spottedPlayer && !resetAngleRunning) {
+  
+                StartCoroutine(ResetAngle());
+            }
+            
             spottedPlayer = false;
-            visionCone.GetComponent<VisionCone>().lookingAngle = coneLookingAngle;
-            visionCone.GetComponent<VisionCone>().fov = originalFov; 
-            visionCone.GetComponent<VisionCone>().viewDistance = originalViewDistance;
+
         }
         else
         {
             spottedPlayer = true;
             visionCone.GetComponent<VisionCone>().viewDistance = distance + distanceExpand;
-            visionCone.GetComponent<VisionCone>().fov = 20f;
+            StartCoroutine(SetFovOverTime(20f, 0.25f));
             
         }
         
