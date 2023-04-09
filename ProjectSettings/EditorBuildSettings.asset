@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/DemoScenes/MainMenu.unity
+    guid: d3106d2519b904aab8c8a799ecbf8921
+  - enabled: 1
     path: Assets/Scenes/DemoScenes/BobOffice.unity
     guid: c5728eea92000c6488b814ade7f9c378
   - enabled: 1
@@ -29,4 +32,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DemoScenes/ManagerIntro.unity
     guid: 2225e52213f4cc24aaea305f4f5b48fb
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/AllMechanics.unity
+    guid: 0534557aba309ac4a85c216f96f341d1
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/Hidehallway.unity
+    guid: ca1ffee3124598245a4a3c7057e38e02
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/JoeLevel.unity
+    guid: 2b2d4946745884b769c70efc241675a9
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/SticklerIntroduction2.unity
+    guid: 471f29dc093d646b1acf80e9431505f8
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/SticklerLevel.unity
+    guid: 061b164a34c2f462897aaa99b8990f46
   m_configObjects: {}
