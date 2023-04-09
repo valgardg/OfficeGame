@@ -57,10 +57,7 @@ MonoBehaviour:
   viewDistance: 10
   lookingAngle: 0
   rayCount: 25
-  walls: {fileID: 0}
   Player: {fileID: 0}
-  PlayerDetect: {fileID: 0}
-  PlayerSpotted: {fileID: 0}
   PolyCollider: {fileID: 0}
   timetocatch: 2
   spottedPlayer: 0
@@ -326,7 +323,7 @@ GameObject:
   - component: {fileID: 5406332758403497986}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,3 +414,4 @@ MonoBehaviour:
   speed: 10
   rotateConeSpeed: 100
   distanceExpand: 10
+  loop: 1

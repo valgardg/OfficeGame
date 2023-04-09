@@ -22,7 +22,6 @@ public class SpottedIndicator : MonoBehaviour
         spotted = visionCone.GetComponent<VisionCone>().spottedPlayer;
         if (spotted)
         {
-
             animator.SetBool("Spotted", true);
             spriteRenderer.enabled = true;
             if (GameManager.Instance.gameover)

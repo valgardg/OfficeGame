@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float fadeInSpeed;
     public bool stopped;
     public bool gameover;
+    public bool playerSpotted;
 
     private bool fadingIn;
     public bool fadingOut;
