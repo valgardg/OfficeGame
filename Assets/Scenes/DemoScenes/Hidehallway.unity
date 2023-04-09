@@ -5181,7 +5181,7 @@ PrefabInstance:
       objectReference: {fileID: 1456819282}
     - target: {fileID: 8879072068567115430, guid: c03da1744cf86194c8fbe176eb38da69, type: 3}
       propertyPath: levelLoad
-      value: SticklerIntroduction2
+      value: SticklerIntroduction
       objectReference: {fileID: 0}
     - target: {fileID: 8879072068567115431, guid: c03da1744cf86194c8fbe176eb38da69, type: 3}
       propertyPath: m_RootOrder

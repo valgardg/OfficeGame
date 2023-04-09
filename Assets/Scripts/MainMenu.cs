@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Play Game");
         // PauseMenu.GameIsPaused = false;
-        SceneManager.LoadScene(0); // Loads level 1
+        SceneManager.LoadScene(1); // Loads level 1
     }
 
     // Closes the game, doesn't really work in the website version. But does work when you build the game as an application!
