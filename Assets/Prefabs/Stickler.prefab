@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 6241502958285501727}
   m_Layer: 0
   m_Name: Stickler
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,6 +228,8 @@ MonoBehaviour:
   peekDistance: 1.5
   peekSpeed: 3
   peekDuration: 3
+  distanceExpand: 0
+  spottedPlayer: 0
   visionCone: {fileID: 6241502958537447859}
   animator: {fileID: 6241502958285501727}
   warning: {fileID: 8267311729111240510}
@@ -309,10 +311,7 @@ MonoBehaviour:
   viewDistance: 7
   lookingAngle: -90
   rayCount: 25
-  walls: {fileID: 0}
   Player: {fileID: 0}
-  PlayerDetect: {fileID: 0}
-  PlayerSpotted: {fileID: 0}
   PolyCollider: {fileID: 0}
   timetocatch: 2
   spottedPlayer: 0

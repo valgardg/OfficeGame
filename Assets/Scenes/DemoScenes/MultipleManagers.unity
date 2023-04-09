@@ -270,7 +270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 0
-  resetToZero: 1
   turningClockwise: 1
 --- !u!1 &117054031
 GameObject:
@@ -2197,7 +2196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 90
-  resetToZero: 0
   turningClockwise: 1
 --- !u!1001 &204364838
 PrefabInstance:
@@ -2325,7 +2323,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 270
-  resetToZero: 0
   turningClockwise: 1
 --- !u!1 &257355695
 GameObject:
@@ -6303,7 +6300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 180
-  resetToZero: 0
   turningClockwise: 1
 --- !u!1 &460015037
 GameObject:
@@ -6490,7 +6486,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 180
-  resetToZero: 0
   turningClockwise: 1
 --- !u!1001 &628299471
 PrefabInstance:
@@ -6971,7 +6966,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 180
-  resetToZero: 0
   turningClockwise: 1
 --- !u!1 &913660807
 GameObject:
@@ -7159,7 +7153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 358
-  resetToZero: 1
   turningClockwise: 0
 --- !u!1 &1175263696
 GameObject:
@@ -9391,6 +9384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5406332758403497991, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
 --- !u!1 &1419867294
@@ -9438,7 +9435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 0
-  resetToZero: 1
   turningClockwise: 1
 --- !u!1 &1456819282 stripped
 GameObject:
@@ -9490,7 +9486,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 90
-  resetToZero: 0
   turningClockwise: 0
 --- !u!1 &1549352736
 GameObject:
@@ -9613,7 +9608,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 270
-  resetToZero: 0
   turningClockwise: 0
 --- !u!1 &1615903609
 GameObject:
@@ -9999,6 +9993,7 @@ MonoBehaviour:
   fadeInSpeed: 1
   stopped: 0
   gameover: 0
+  playerSpotted: 0
   fadingOut: 0
 --- !u!4 &1731537057
 Transform:
@@ -10060,7 +10055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 180
-  resetToZero: 0
   turningClockwise: 0
 --- !u!1 &1905851209
 GameObject:
@@ -10107,7 +10101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 270
-  resetToZero: 0
   turningClockwise: 0
 --- !u!1 &1949388612
 GameObject:
@@ -10154,7 +10147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 90
-  resetToZero: 0
   turningClockwise: 1
 --- !u!60 &1990929278 stripped
 PolygonCollider2D:
