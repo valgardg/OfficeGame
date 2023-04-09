@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 90
-  resetToZero: 0
+  turningClockwise: 1
 --- !u!1 &29192201
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,8 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: -359
-  resetToZero: 0
+  angle: 0
+  turningClockwise: 1
 --- !u!1001 &64222835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: -90
-  resetToZero: 1
+  angle: 270
+  turningClockwise: 1
 --- !u!1001 &173947330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -544,8 +544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: -90
-  resetToZero: 1
+  angle: 270
+  turningClockwise: 0
 --- !u!1 &240439953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5594532980016793520, guid: 8731246d69ac3ab48be0c4e1d7b62675, type: 3}
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 180
-  resetToZero: 0
+  turningClockwise: 1
 --- !u!1001 &628299471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2509,8 +2509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f138e3d8fcdf1428908439287f3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 359
-  resetToZero: 0
+  angle: 0
+  turningClockwise: 0
 --- !u!1 &1219379679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,7 +2845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 90
-  resetToZero: 0
+  turningClockwise: 0
 --- !u!1 &1615903609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,7 +3071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 180
-  resetToZero: 0
+  turningClockwise: 0
 --- !u!1 &2064036698
 GameObject:
   m_ObjectHideFlags: 0

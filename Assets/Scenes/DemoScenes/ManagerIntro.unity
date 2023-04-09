@@ -352,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 358
   resetToZero: 1
+  turningClockwise: 1
 --- !u!1 &240439953 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5594532980016793520, guid: 8731246d69ac3ab48be0c4e1d7b62675, type: 3}
@@ -1946,6 +1947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 270
   resetToZero: 0
+  turningClockwise: 1
 --- !u!1 &1175263696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 180
   resetToZero: 0
+  turningClockwise: 1
 --- !u!1 &1549352736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,6 +2408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 90
   resetToZero: 0
+  turningClockwise: 1
 --- !u!1 &2064036698
 GameObject:
   m_ObjectHideFlags: 0
@@ -4361,6 +4365,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1456819282}
+    - target: {fileID: 5406332757526359792, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
+      propertyPath: rayCount
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 5406332757526359792, guid: 4a79c648103ad407894c813b35ccc67d, type: 3}
       propertyPath: PlayerDetect
       value: 

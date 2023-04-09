@@ -52,17 +52,11 @@ public class PathFollow : MonoBehaviour
             Rotate(originalrotation);
             if (rotating == Rotation.NotRotating)
             {
-                if (PointData.resetToZero)
-                {
-                    ConeObj.SetAimDirection(0f);
-                    originalrotation = 0f;
-                }
                 pointIndex++;
                 if (pointIndex >= points.Length)
                 {
                     pointIndex = 0;
                 }
-
                 PointData = points[pointIndex].GetComponent<waypointdata>();
             }
         }
