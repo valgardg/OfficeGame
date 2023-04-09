@@ -314,6 +314,7 @@ MonoBehaviour:
   peekDuration: 3
   distanceExpand: 10
   spottedPlayer: 0
+  fovShrink: 20
   visionCone: {fileID: 8244228701741662314}
   animator: {fileID: 2663641187654065453}
   warning: {fileID: 59116772330628876}

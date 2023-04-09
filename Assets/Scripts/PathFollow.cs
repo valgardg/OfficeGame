@@ -15,7 +15,9 @@ public class PathFollow : MonoBehaviour
     public float speed = 2f;
     public float rotateConeSpeed = 2f;
     public float distanceExpand;
+    public float fovShrink;
     public bool loop = true;
+    public Animator animator;
 
     private Rotation rotating = Rotation.NotRotating; 
     private bool fixingRotation;
@@ -24,6 +26,8 @@ public class PathFollow : MonoBehaviour
     private VisionCone ConeObj;
     private waypointdata PointData;
     private float distance;
+    private float originalFov;
+    private bool playerspotted;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +38,13 @@ public class PathFollow : MonoBehaviour
         pointIndex++;
         PointData = points[pointIndex].GetComponent<waypointdata>();
         fixingRotation = false;
+        originalFov = ConeObj.fov;
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool playerspotted = (GetComponentInChildren<VisionCone>().spottedPlayer);
+        bool playerspotted = ConeObj.spottedPlayer;
         if (!playerspotted && fixingRotation)
         {
             ConeObj.viewDistance = distance;
@@ -60,12 +65,19 @@ public class PathFollow : MonoBehaviour
                 PointData = points[pointIndex].GetComponent<waypointdata>();
             }
         }
-        else if (!playerspotted) Move();
+        else if (!playerspotted) {
+            Move();
+            Animate();
+            StartCoroutine(ResetAngle());
+        }
         else
         {
             ConeObj.viewDistance = distance + distanceExpand;
+            StartCoroutine(SetFovOverTime(fovShrink, 0.25f));
             rotating = Rotation.NotRotating;
             fixingRotation = true;
+            float shakeAmount = 2f;
+            transform.position += new Vector3(0, Mathf.Sin(Time.time * 40f) * shakeAmount * Time.deltaTime, 0);
         }
         
     }
@@ -91,6 +103,22 @@ public class PathFollow : MonoBehaviour
         }
 
     }
+
+    void Animate()
+    {
+        Vector2 direction = (points[pointIndex].transform.position - transform.position).normalized;
+        float moveHorizontal = direction.x;
+        float moveVertical = direction.y;
+
+        if (direction.sqrMagnitude > 0.1)
+        {
+            animator.SetFloat("x", moveHorizontal);
+            animator.SetFloat("y", moveVertical);
+        }
+
+        animator.SetFloat("speed", direction.magnitude);
+    }
+
     public float ConvertTo360(float angle)
     {
         if (angle < 0)
@@ -98,6 +126,48 @@ public class PathFollow : MonoBehaviour
             return 180 + (-angle);
         }
         return angle % 360;
+    }
+
+    IEnumerator ResetAngle()
+{
+    // resetAngleRunning = true;
+    float currentAngle = ConeObj.lookingAngle;
+    float currentFov = ConeObj.fov;
+    float currentViewDistance = ConeObj.viewDistance;
+    float angleResetSpeed = 0.1f;
+
+    float elapsedTime = 0f;
+    while ((Mathf.Abs(currentFov - originalFov) > 0.01f && !playerspotted))
+    {
+        elapsedTime += Time.deltaTime;
+        float lerpFactor = elapsedTime * angleResetSpeed;
+
+
+        currentFov = Mathf.Lerp(currentFov, originalFov, (lerpFactor/3));
+
+        ConeObj.fov = currentFov;
+
+        yield return null;
+    }
+    // resetAngleRunning = false;
+}
+
+
+
+    IEnumerator SetFovOverTime(float targetFov, float duration)
+    {
+        float startFov = ConeObj.fov;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newFov = Mathf.Lerp(startFov, targetFov, elapsedTime / duration);
+            ConeObj.fov = newFov;
+            yield return null;
+        }
+
+        ConeObj.fov = targetFov;
     }
 
     public void Rotate(float angle)

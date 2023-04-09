@@ -16,6 +16,7 @@ public class Stickler : MonoBehaviour
     private float originalViewDistance;
     private float angleResetSpeed = 0.1f;
     private bool resetAngleRunning = false;
+    public float fovShrink;
 
     private Vector3 initialPosition;
     public GameObject visionCone;
@@ -163,7 +164,7 @@ IEnumerator ResetAngle()
         {
             spottedPlayer = true;
             visionCone.GetComponent<VisionCone>().viewDistance = distance + distanceExpand;
-            StartCoroutine(SetFovOverTime(20f, 0.25f));
+            StartCoroutine(SetFovOverTime(fovShrink, 0.25f));
             
         }
         
