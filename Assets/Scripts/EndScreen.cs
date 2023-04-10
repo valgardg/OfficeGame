@@ -9,7 +9,7 @@ public class EndScreen : MonoBehaviour
     void Start()
     {
         sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
-        sfxManager.stopOfficeSounds();
+        sfxManager.stopMusic();
         sfxManager.playEndScreenSounds();
         
     }

@@ -45,5 +45,10 @@ public class SFXManager : MonoBehaviour
     {
         endScreenSound.Play();
     }
+
+    public void stopMusic()
+    {
+        musicSource.Stop();
+    }
 }
 

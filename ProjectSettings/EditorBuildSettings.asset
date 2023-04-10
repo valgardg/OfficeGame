@@ -42,6 +42,6 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScenes/JoeLevel.unity
     guid: 2b2d4946745884b769c70efc241675a9
   - enabled: 1
-    path: Assets/Scenes/DemoScenes/EndScreen.unity
-    guid: 416f262518b744a4e9ae5bf0652ace52
+    path: Assets/Scenes/DemoScenes/WinScreen.unity
+    guid: 5ed0d76d3efebc649bd9326c8b94dfbf
   m_configObjects: {}
