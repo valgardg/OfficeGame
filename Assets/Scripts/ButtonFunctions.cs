@@ -21,13 +21,24 @@ public class ButtonFunctions : MonoBehaviour
     public void Restart()
     {
         sfxManager.stopEndScreenSounds();
+        sfxManager.playMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoToScene(string SceneName)
     {
-        sfxManager.stopEndScreenSounds();
-        sfxManager.playMusic();
-        SceneManager.LoadScene(SceneName);
+        if (SceneName == "MainMenu")
+        {
+            Destroy(sfxManager.gameObject);
+            sfxManager.stopEndScreenSounds();
+            SceneManager.LoadScene(SceneName);
+        }
+        else
+        {
+            sfxManager.stopEndScreenSounds();
+            sfxManager.playMusic();
+            SceneManager.LoadScene(SceneName);
+        }
+
     }
 }
