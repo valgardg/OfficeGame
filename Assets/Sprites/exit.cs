@@ -49,6 +49,15 @@ public class exit : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject == player && !spotted)
+        {
+            GameManager.Instance.Stop();
+            exiting = true;
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         CannotEscapeAlert.SetActive(true);

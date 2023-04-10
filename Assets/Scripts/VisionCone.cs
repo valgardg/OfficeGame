@@ -132,7 +132,6 @@ public class VisionCone : MonoBehaviour
         if (timerSeconds >= timetocatch)
         {
             GameManager.Instance.GameOver();
-            print("gameover");
             return;
         }
 
@@ -144,7 +143,6 @@ public class VisionCone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        print("exit");
         if (other.gameObject == PlayerDetect && spottedPlayer)
         {
             spottedPlayer = false;
