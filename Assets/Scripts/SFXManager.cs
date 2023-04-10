@@ -7,6 +7,7 @@ public class SFXManager : MonoBehaviour
     private static SFXManager instance = null;
     public AudioSource officeSounds;
     public AudioSource musicSource;
+    public AudioSource endScreenSound;
 
     // Start is called before the first frame update
     void Awake()
@@ -38,6 +39,11 @@ public class SFXManager : MonoBehaviour
     public void playOfficeSounds()
     {
         officeSounds.Play();
+    }
+
+    public void playEndScreenSounds()
+    {
+        endScreenSound.Play();
     }
 }
 
