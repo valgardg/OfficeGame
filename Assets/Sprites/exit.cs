@@ -6,17 +6,20 @@ using UnityEngine.SceneManagement;
 public class exit : MonoBehaviour
 {
     public GameObject player;
+    public GameObject CannotEscapeAlert;
     public string levelLoad;
     private bool exiting;
     private bool spotted;
-
 
     private void Update()
     {
 
         CloseExit();
 
-        print(spotted);
+        if (GameManager.Instance.stopped)
+        {
+            CannotEscapeAlert.SetActive(false);
+        }
 
         if (spotted)
         {
@@ -27,7 +30,6 @@ public class exit : MonoBehaviour
         {
             if (!GameManager.Instance.fadingOut)
             {
-                print(levelLoad);
                 SceneManager.LoadScene(levelLoad);
             }
         }
@@ -47,6 +49,16 @@ public class exit : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        CannotEscapeAlert.SetActive(true);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        CannotEscapeAlert.SetActive(false);
+    }
+
     private void CloseExit()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -54,8 +66,11 @@ public class exit : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             GameObject enemy = enemies[i];
-            print(enemies[i].name);
-            spotted = spotted || enemy.GetComponentInChildren<VisionCone>().spottedPlayer;
+            VisionCone cone = enemy.GetComponentInChildren<VisionCone>();
+            if (cone != null)
+            {
+                spotted = spotted || cone.spottedPlayer;
+            }
         }
     }
 }

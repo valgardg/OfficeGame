@@ -213,7 +213,6 @@ public class PathFollow : MonoBehaviour
             {
                 rotating = Rotation.AntiClockwise;
             }
-            print(rotating);
         }
     }
 }
