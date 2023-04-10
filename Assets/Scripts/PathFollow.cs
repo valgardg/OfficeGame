@@ -27,6 +27,7 @@ public class PathFollow : MonoBehaviour
     private waypointdata PointData;
     private float distance;
     private float originalFov;
+    private float originalViewDistance;
     private bool playerspotted;
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,8 @@ public class PathFollow : MonoBehaviour
         bool playerspotted = ConeObj.spottedPlayer;
         if (!playerspotted && fixingRotation)
         {
-            ConeObj.viewDistance = distance;
+            // ConeObj.viewDistance = distance;
+            StartCoroutine(ResetAngle());
             ConeObj.lookingAngle = originalrotation;
             fixingRotation = false;
             rotating = Rotation.NotRotating;
@@ -68,7 +70,7 @@ public class PathFollow : MonoBehaviour
         else if (!playerspotted) {
             Move();
             Animate();
-            StartCoroutine(ResetAngle());
+            // StartCoroutine(ResetAngle());
         }
         else
         {
@@ -137,15 +139,17 @@ public class PathFollow : MonoBehaviour
     float angleResetSpeed = 0.1f;
 
     float elapsedTime = 0f;
-    while ((Mathf.Abs(currentFov - originalFov) > 0.01f && !playerspotted))
+    while ((Mathf.Abs(currentFov - originalFov) > 0.01f && !playerspotted) || (Mathf.Abs(currentViewDistance - distance) > 0.01f && playerspotted))
     {
         elapsedTime += Time.deltaTime;
         float lerpFactor = elapsedTime * angleResetSpeed;
 
 
         currentFov = Mathf.Lerp(currentFov, originalFov, (lerpFactor/3));
+        currentViewDistance = Mathf.Lerp(currentViewDistance, distance, (lerpFactor));
 
         ConeObj.fov = currentFov;
+        ConeObj.viewDistance = currentViewDistance;
 
         yield return null;
     }
