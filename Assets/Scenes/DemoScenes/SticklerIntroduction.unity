@@ -157,6 +157,7 @@ MonoBehaviour:
   fadeInSpeed: 1
   stopped: 0
   gameover: 0
+  playerSpotted: 0
   fadingOut: 0
 --- !u!4 &98503772
 Transform:
@@ -3209,6 +3210,10 @@ PrefabInstance:
       value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 6241502958285501720, guid: f1ef894123212412eafc9ec45655810f, type: 3}
+      propertyPath: fovShrink
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6241502958285501720, guid: f1ef894123212412eafc9ec45655810f, type: 3}
       propertyPath: visionCone
       value: 
       objectReference: {fileID: 1609870975}
@@ -3610,6 +3615,7 @@ GameObject:
   - component: {fileID: 1773167496}
   - component: {fileID: 1773167498}
   - component: {fileID: 1773167497}
+  - component: {fileID: 1773167499}
   m_Layer: 1
   m_Name: SticklerWallmap
   m_TagString: Untagged
@@ -3993,6 +3999,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1773167499
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773167495}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &1828877729
 GameObject:
   m_ObjectHideFlags: 0
