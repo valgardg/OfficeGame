@@ -21,4 +21,9 @@ public class ButtonFunctions : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void GoToScene(string SceneName)
+    {
+        SceneManager.LoadScene(SceneName);
+    }
 }
