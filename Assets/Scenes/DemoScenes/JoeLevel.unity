@@ -2482,7 +2482,7 @@ PrefabInstance:
       objectReference: {fileID: 1456819282}
     - target: {fileID: 8879072068567115430, guid: c03da1744cf86194c8fbe176eb38da69, type: 3}
       propertyPath: levelLoad
-      value: MultipleManagers
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8879072068567115430, guid: c03da1744cf86194c8fbe176eb38da69, type: 3}
       propertyPath: CannotEscapeAlert
@@ -8818,7 +8818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1175263697
 MonoBehaviour:
   m_ObjectHideFlags: 0
