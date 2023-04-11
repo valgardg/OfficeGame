@@ -20,8 +20,8 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     // When we build, the menu should be at index 0 in our build settings. The game will be at index 1.
     {
-        sfxManager.stopOfficeSounds();
-        sfxManager.playMusic();
+        // sfxManager.stopOfficeSounds();
+        // sfxManager.playMusic();
 
         // PauseMenu.GameIsPaused = false;
         SceneManager.LoadScene(1); // Loads level 1
