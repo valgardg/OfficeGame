@@ -20,8 +20,6 @@ public class ButtonFunctions : MonoBehaviour
 
     public void Restart()
     {
-        sfxManager.stopEndScreenSounds();
-        sfxManager.playMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
