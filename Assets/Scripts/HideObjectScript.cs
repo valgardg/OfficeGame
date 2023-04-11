@@ -12,6 +12,7 @@ public class HideObjectScript : MonoBehaviour
     public SpriteRenderer spriteRender;
     public Sprite defaultSprite;
     public Sprite highlightedSprite;
+    public GameObject hidingShadow;
     private GameObject player;
     private bool canHide;
     private bool hiding;
@@ -39,6 +40,8 @@ public class HideObjectScript : MonoBehaviour
         // set game manager state to player hidden
         // set the players previous locatoin into variable
         previousPlayerPosition = player.transform.position;
+        hidingShadow.SetActive(true);
+        hidingShadow.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.7f, player.transform.position.z);
         // move game player to hide area
         player.transform.position = new Vector3(6.0f, 2.0f, 0.0f);
         // set hiding to true
@@ -57,6 +60,7 @@ public class HideObjectScript : MonoBehaviour
         hiding = false;
         player.SetActive(true);
         hidingIndicator.SetActive(false);
+        hidingShadow.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other){
