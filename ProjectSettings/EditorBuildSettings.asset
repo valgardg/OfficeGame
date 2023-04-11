@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScenes/MainMenu.unity
     guid: d3106d2519b904aab8c8a799ecbf8921
   - enabled: 1
+    path: Assets/Scenes/DemoScenes/IntroCutsceneScene.unity
+    guid: 6493d130b68dbb5418b7a37e5a6441c2
+  - enabled: 1
     path: Assets/Scenes/DemoScenes/BobOffice.unity
     guid: c5728eea92000c6488b814ade7f9c378
   - enabled: 1
