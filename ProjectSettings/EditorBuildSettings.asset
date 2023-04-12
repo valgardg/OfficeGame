@@ -39,12 +39,12 @@ EditorBuildSettings:
     path: Assets/Scenes/DemoScenes/SticklerLevel.unity
     guid: aaf57e2c803f54cd2a3dfa8c79c92ca9
   - enabled: 1
+    path: Assets/Scenes/DemoScenes/GuardTutorial.unity
+    guid: 0000532003d210c418504b6928d0cea2
+  - enabled: 1
     path: Assets/Scenes/DemoScenes/AllMechanics.unity
     guid: 0534557aba309ac4a85c216f96f341d1
   - enabled: 1
     path: Assets/Scenes/DemoScenes/WinScreen.unity
     guid: 5ed0d76d3efebc649bd9326c8b94dfbf
-  - enabled: 1
-    path: Assets/Scenes/DemoScenes/GuardTutorial.unity
-    guid: 0000532003d210c418504b6928d0cea2
   m_configObjects: {}
