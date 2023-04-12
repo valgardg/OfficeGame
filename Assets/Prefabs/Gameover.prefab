@@ -453,8 +453,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: YOU'RE FIRED!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9a1f6fa198e754ddabbe88b933e1098f, type: 2}
-  m_sharedMaterial: {fileID: -7212004490378646808, guid: 9a1f6fa198e754ddabbe88b933e1098f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 383507a21dac641579947408b2034b45, type: 2}
+  m_sharedMaterial: {fileID: 5142760577773439820, guid: 383507a21dac641579947408b2034b45, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
