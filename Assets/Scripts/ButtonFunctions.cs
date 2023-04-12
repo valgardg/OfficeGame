@@ -9,7 +9,7 @@ public class ButtonFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (sfxManager != null) sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
     }
 
     // Update is called once per frame
