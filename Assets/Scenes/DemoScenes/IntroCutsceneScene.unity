@@ -236,7 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0832d6394cc3ba847973d0be4a4a990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneDuration: 13
+  sfxManager: {fileID: 0}
+  videoPlayer: {fileID: 461548725}
 --- !u!4 &235869917
 Transform:
   m_ObjectHideFlags: 0
@@ -287,12 +288,12 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 0
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: 
+  m_Url: file://D:/Unity/OfficeGame/Builds/StreamingAssets/Valgard_Anmaton.mp4
   m_EnabledAudioTracks: 
   m_DirectAudioMutes: 
   m_ControlledAudioTrackCount: 0
