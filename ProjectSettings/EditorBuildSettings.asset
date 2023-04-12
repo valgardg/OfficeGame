@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DemoScenes/WinScreen.unity
     guid: 5ed0d76d3efebc649bd9326c8b94dfbf
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/BigGuardLevel.unity
+    guid: 88ab7786a047a824097cac8ccfbd6a63
   m_configObjects: {}
