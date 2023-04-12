@@ -3844,6 +3844,18 @@ PrefabInstance:
       propertyPath: lookingAngle
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.76
+      objectReference: {fileID: 0}
     - target: {fileID: 8244228701741662353, guid: 762f3403e62f14c258908d126f911309, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.097
@@ -6178,6 +6190,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8244228701741662358, guid: 762f3403e62f14c258908d126f911309, type: 3}
       propertyPath: Player
       value: 
@@ -7085,6 +7109,18 @@ PrefabInstance:
     - target: {fileID: 2663641187654065451, guid: 762f3403e62f14c258908d126f911309, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748700985269669035, guid: 762f3403e62f14c258908d126f911309, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8244228701741662358, guid: 762f3403e62f14c258908d126f911309, type: 3}
       propertyPath: fov

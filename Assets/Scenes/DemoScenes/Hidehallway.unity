@@ -5913,7 +5913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1456819282}
   xOffset: 0
-  yOffset: 3
+  yOffset: 0
 --- !u!1001 &2146224636
 PrefabInstance:
   m_ObjectHideFlags: 0
